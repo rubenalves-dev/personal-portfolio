@@ -1,0 +1,17 @@
+:root {
+    --color-primary: #F25F5C;
+    --color-primary-light: #f68f8d;
+    --color-primary-dark: #5b0712;
+
+    --color-secondary: #2C8C99;
+    --color-secondary-light: #80bac2;
+    --color-secondary-dark: #1a545c;
+
+    --shade-lightest: #efeded;
+    --shade-lighter: #EFD9CE;
+    --shade-light: #cca48f;
+    --shade: #7f6b6f;
+    --shade-dark: #5F464B;
+    --shade-darker: #392a2d;
+    --shade-darkest: #1c1516;
+}

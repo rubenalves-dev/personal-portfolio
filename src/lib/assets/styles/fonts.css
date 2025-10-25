@@ -1,0 +1,15 @@
+@import url(../icons/feather/style.css);
+@import url(../fonts/jost/style.css);
+
+:root {
+    /* Fonts */
+    --primary-font: Jost, sans-serif;
+    --secondary-font: sans-serif;
+
+    --heading-font: var(--primary-font);
+    --body-font: var(--secondary-font);
+
+    --font-size-sm: clamp(0.875rem, 1vw, 1rem);
+    --font-size: clamp(1rem, 1.5vw, 1.25rem);
+    --font-size-lg: clamp(1.25rem, 2vw, 1.5rem);
+}
