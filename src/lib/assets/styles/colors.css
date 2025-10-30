@@ -1,17 +1,25 @@
 :root {
+    --color-primary-lightest: color-mix(in oklab, var(--color-primary), white 90%);
+    --color-primary-lighter: color-mix(in oklab, var(--color-primary), white 70%);
+    --color-primary-light: color-mix(in oklab, var(--color-primary), white 30%);
     --color-primary: #F25F5C;
-    --color-primary-light: #f68f8d;
-    --color-primary-dark: #5b0712;
+    --color-primary-dark: color-mix(in oklab, var(--color-primary), black 30%);
+    --color-primary-darker: color-mix(in oklab, var(--color-primary), black 70%);
+    --color-primary-darkest: color-mix(in oklab, var(--color-primary), black 90%);
 
-    --color-secondary: #2C8C99;
-    --color-secondary-light: #80bac2;
-    --color-secondary-dark: #1a545c;
+    --color-secondary-lightest: color-mix(in oklab, var(--color-secondary), white 90%);
+    --color-secondary-lighter: color-mix(in oklab, var(--color-secondary), white 70%);
+    --color-secondary-light: color-mix(in oklab, var(--color-secondary), white 30%);
+    --color-secondary: #4bc6d6;
+    --color-secondary-dark: color-mix(in oklab, var(--color-secondary), black 30%);
+    --color-secondary-darker: color-mix(in oklab, var(--color-secondary), black 70%);
+    --color-secondary-darkest: color-mix(in oklab, var(--color-secondary), black 90%);
 
-    --shade-lightest: #efeded;
-    --shade-lighter: #EFD9CE;
-    --shade-light: #cca48f;
+    --shade-lightest: color-mix(in oklab, var(--shade), white 90%);
+    --shade-lighter: color-mix(in oklab, var(--shade), white 70%);
+    --shade-light: color-mix(in oklab, var(--shade), white 30%);
     --shade: #7f6b6f;
-    --shade-dark: #5F464B;
-    --shade-darker: #392a2d;
-    --shade-darkest: #1c1516;
+    --shade-dark: color-mix(in oklab, var(--shade), black 30%);
+    --shade-darker: color-mix(in oklab, var(--shade), black 70%);
+    --shade-darkest: color-mix(in oklab, var(--shade), black 90%);
 }

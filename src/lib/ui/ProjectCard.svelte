@@ -68,63 +68,72 @@
 	</div>
 
 	<div class="project-card__content">
-		<h3 class="project-card__title">{props.title}</h3>
+		<div class="project-card__header">
+			<h3 class="project-card__title">{props.title}</h3>
+			<div class="project-card__goto-links">
+				{#if props.github_repo_url}
+					<Button
+						href={props.github_repo_url}
+						variant="primary-outline"
+						target="_blank"
+						style="--btn-color: var(--shade-dark); --btn-background-color: var(--shade-lightest);"
+						size="sm"
+						shape="square"
+					>
+						<i class="icon-github-f"></i>
+					</Button>
+				{/if}
+
+				{#if props.gitlab_repo_url}
+					<Button
+						href={props.gitlab_repo_url}
+						variant="primary-outline"
+						target="_blank"
+						style="--btn-color: var(--shade-lightest); --btn-background-color: #fc6d26; --btn-border-color: #fc6d26;"
+						size="sm"
+						shape="square"
+					>
+						<i class="icon-gitlab-f"></i>
+					</Button>
+				{/if}
+
+				{#if !hasRepo}
+					<div class="project-card__no-repo">
+						<i class="icon-github-f"></i>
+						<div class="project-card__no-repo-line"></div>
+					</div>
+				{/if}
+			</div>
+		</div>
 
 		{#if props.description}
 			<p class="project-card__description">{props.description}</p>
 		{/if}
-	</div>
-	{#if props.app_url}
-		<div class="project-card__footer">
-			<div class="project-card__links">
-				<div class="project-card__goto-links">
-					{#if props.github_repo_url}
-						<Button href={props.github_repo_url} target="_blank">
-							<i class="icon-github"></i>
-						</Button>
-					{/if}
 
-					{#if props.gitlab_repo_url}
-						<Button href={props.gitlab_repo_url} target="_blank">
-							<i class="icon-gitlab-f"></i>
-						</Button>
-					{/if}
-
-					{#if !hasRepo}
-						<Button variant="secondary" state="disabled">
-							<div class="project-card__no-repo">
-								<i class="icon-github-f"></i>
-								<div class="project-card__no-repo-line"></div>
-							</div>
-						</Button>
-					{/if}
-				</div>
-				<div class="project-card__goto-app">
-					<Button href={props.app_url} target="_blank">
-						Visit <i class="icon-arrow-right"></i>
-					</Button>
-				</div>
-			</div>
+		<div class="project-card__goto-app">
+			<Button href={props.app_url} target="_blank">
+				Visit <i class="icon-external-link"></i>
+			</Button>
 		</div>
-	{/if}
+	</div>
 </article>
 
 <style>
 	.project-card {
 		display: flex;
 		flex-direction: column;
-		background: var(--shade-lightest);
+		background: var(--color-secondary-lightest);
 		border-radius: 1rem;
 		overflow: hidden;
 		transition:
 			transform 0.3s ease,
 			box-shadow 0.3s ease;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0.25rem 0.5rem rgb(0 0 0 / 0.25);
 		height: 100%;
 
 		&:hover {
 			transform: translateY(-4px);
-			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 
 			.project-card__image {
 				transform: scale(1.05);
@@ -138,6 +147,24 @@
 			background: var(--shade-lightest);
 			aspect-ratio: 5 / 3;
 			position: relative;
+
+			&::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.2) 100%);
+				pointer-events: none;
+				z-index: 1;
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				box-shadow: 0 0 1.5rem -1rem black inset;
+				pointer-events: none;
+				z-index: 1;
+			}
 		}
 
 		.project-card__image {
@@ -155,6 +182,16 @@
 			gap: 1rem;
 		}
 
+		.project-card__header {
+			display: grid;
+			align-items: flex-start;
+			justify-content: flex-start;
+			grid-template-columns: auto 1fr;
+			flex-wrap: wrap;
+			gap: 1rem;
+			flex: 1;
+		}
+
 		.project-card__title {
 			font-size: 1.5rem;
 			font-weight: 700;
@@ -169,12 +206,6 @@
 			color: var(--shade-dark);
 			margin: 0;
 			flex: 1;
-		}
-
-		.project-card__footer {
-			display: flex;
-			align-items: stretch;
-			justify-content: space-between;
 		}
 
 		.project-card__links {
@@ -203,7 +234,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			color: var(--shade-lighter);
+			color: var(--shade-darker);
 		}
 
 		.project-card__no-repo-line {
@@ -216,19 +247,26 @@
 
 		.project-card__goto-links {
 			display: flex;
+			gap: 0.5rem;
 			align-items: stretch;
 		}
 
 		.project-card__goto-app {
 			display: flex;
 			align-items: stretch;
-		}
+			justify-content: stretch;
 
-		:global(.btn) {
-			width: 100% !important;
-			align-items: center !important;
-			justify-content: center !important;
-			border-radius: 0;
+			:global(.btn) {
+				width: 100%;
+			}
+
+			:global(.btn .btn__text) {
+				gap: 0.5rem;
+			}
+
+			:global(.btn [class*='icon']) {
+				margin-top: -0.25rem;
+			}
 		}
 
 		.project-card__badges {
@@ -238,6 +276,7 @@
 			position: absolute;
 			inset: auto 0 0 0;
 			padding: 0.75rem 1rem;
+			z-index: 2;
 
 			.badge {
 				display: inline-flex;
@@ -249,7 +288,7 @@
 				text-transform: uppercase;
 				letter-spacing: 0.5px;
 				backdrop-filter: blur(3px);
-				background: color-mix(in srgb, var(--badge-color, var(--shade-light)) 15%, rgb(255 255 255 / 0.7));
+				background: color-mix(in srgb, var(--badge-color, var(--shade-light)) 15%, rgb(255 255 255 / 0.8));
 				color: color-mix(in srgb, var(--badge-color, var(--shade-dark)) 80%, black);
 				border: 1px solid color-mix(in srgb, var(--badge-color, var(--shade-light)) 30%, rgb(255 255 255 / 0.8));
 			}

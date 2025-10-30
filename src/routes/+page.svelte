@@ -50,6 +50,8 @@
 				description="Official website for the Alcoentre Parish Council, built to provide information and services to the local community."
 				image_url="images/jf-alcoentre.jpg"
 				app_url="https://jf-alcoentre.pt"
+				github_repo_url="asd"
+				gitlab_repo_url="asd"
 				tech={{
 					dotnet: true,
 					jquery: true,
@@ -167,7 +169,7 @@
 	}
 
 	.projects {
-		background-color: var(--shade-lighter);
+		background-color: var(--color-primary-lightest);
 		padding-block: 4rem;
 		color: var(--shade-darkest);
 
@@ -181,7 +183,7 @@
 
 		.projects__grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
 			gap: 2rem;
 			margin-top: 2rem;
 		}

@@ -1,5 +1,6 @@
 <script module>
-	type ButtonVariant = 'primary' | 'secondary' | 'link';
+	type ButtonVariant = 'primary' | 'secondary' | 'primary-outline' | 'secondary-outline' | 'link';
+	type ButtonShape = 'square' | 'pill' | 'rectangular' | 'circle';
 	type ButtonState = 'default' | 'loading' | 'disabled';
 	type ButtonSize = 'sm' | 'md' | 'lg';
 </script>
@@ -11,10 +12,12 @@
 	type Props = {
 		text?: string;
 		children?: Snippet;
+		shape?: ButtonShape;
 		variant?: ButtonVariant;
 		state?: ButtonState;
 		size?: ButtonSize;
 		href?: string;
+		style?: string;
 		target?: '_self' | '_blank' | '_parent' | '_top';
 		type?: 'button' | 'submit' | 'reset';
 	};
@@ -25,7 +28,8 @@
 		'btn',
 		!isStringNullOrEmpty(props.size) && 'btn--' + props.size,
 		!isStringNullOrEmpty(props.variant) && 'btn--' + props.variant,
-		!isStringNullOrEmpty(props.state) && 'btn--' + props.state
+		!isStringNullOrEmpty(props.state) && 'btn--' + props.state,
+		!isStringNullOrEmpty(props.shape) && 'btn--' + props.shape
 	]
 		.filter(Boolean)
 		.join(' ');
@@ -45,11 +49,16 @@
 
 {#if 'href' in props && !isStringNullOrEmpty(props.href)}
 	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-	<a class={classes} target={props.target} href={props.href}>
+	<a class={classes} target={props.target} href={props.href} style={props.style}>
 		{@render buttonContent()}
 	</a>
 {:else}
-	<button class={classes} type={(props as Props).type ?? 'button'} disabled={props.state === 'disabled'}>
+	<button
+		class={classes}
+		type={(props as Props).type ?? 'button'}
+		disabled={props.state === 'disabled'}
+		style={props.style}
+	>
 		{@render buttonContent()}
 	</button>
 {/if}
@@ -68,7 +77,7 @@
 
 		--btn-border-radius: 0.5rem;
 		--btn-border-width: 0;
-		--btn-border-color: var(--text-color);
+		--btn-border-color: var(--_btn-color, var(--btn-color));
 
 		--btn-letter-spacing: normal;
 		--btn-font-size: 1rem;
@@ -76,6 +85,7 @@
 
 		--_btn-color: var(--btn-color);
 		--_btn-background-color: var(--btn-background-color);
+		--_btn-font-size: var(--btn-font-size);
 
 		display: inline-flex;
 		align-items: stretch;
@@ -98,6 +108,9 @@
 		transition: 150ms all ease;
 
 		& .btn__text {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			color: inherit;
 			font-family: var(--body-font);
 			font-size: var(--btn-font-size);
@@ -131,9 +144,21 @@
 			--btn-background-color: var(--color-primary);
 		}
 
+		&.btn--primary-outline {
+			--btn-color: var(--color-primary);
+			--btn-background-color: transparent;
+			--btn-border-width: 2px;
+		}
+
 		&.btn--secondary {
 			--btn-color: var(--shade-lightest);
 			--btn-background-color: var(--color-secondary);
+			--btn-border-width: 2px;
+		}
+
+		&.btn--secondary-outline {
+			--btn-color: var(--color-secondary);
+			--btn-background-color: transparent;
 			--btn-border-width: 2px;
 		}
 
@@ -155,9 +180,21 @@
 
 		&.btn--disabled {
 			--_btn-color: var(--shade-darker);
-			--_btn-background-color: var(--shade-light);
+			--_btn-background-color: var(--shade-lighter);
 			cursor: not-allowed;
 			pointer-events: none;
+		}
+
+		&.btn--loading {
+			--_btn-color: var(--shade-darker);
+			--_btn-background-color: var(--shade-lighter);
+			cursor: wait;
+			pointer-events: none;
+		}
+
+		&.btn--square {
+			--btn-padding-inline: var(--btn-padding-block, 0.5em);
+			aspect-ratio: 1 / 1;
 		}
 	}
 </style>

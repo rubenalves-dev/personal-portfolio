@@ -6,6 +6,7 @@
 /* 2. Remove default margin */
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 /* 3. Enable keyword animations */

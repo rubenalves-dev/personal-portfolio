@@ -85,7 +85,7 @@
 
 			.hero__background-title,
 			.hero__background-character {
-				color: var(--shade-lighter);
+				color: var(--color-primary-lighter);
 				font-size: clamp(6rem, 6vw, 10rem);
 				font-weight: 900;
 				text-transform: uppercase;
@@ -95,14 +95,14 @@
 				letter-spacing: -0.1em;
 
 				.hero__background-character {
-					color: var(--shade-light);
+					color: var(--color-primary);
 					opacity: 0.5;
 
 					&.hero__background-character--em {
 						text-shadow:
-							0.145em 0 0 var(--shade-lightest),
-							0.215em 0.215em 0 var(--shade-lightest),
-							0.29em 0 0 var(--shade-light);
+							0.145em 0 0 var(--color-primary-lightest),
+							0.215em 0.215em 0 var(--color-primary-lightest),
+							0.29em 0 0 var(--color-primary);
 					}
 				}
 			}
