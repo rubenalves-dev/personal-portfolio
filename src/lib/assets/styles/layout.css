@@ -10,6 +10,7 @@ body {
     width: 100%;
     margin-inline: auto;
     padding-inline: 1rem;
+    transition: all 300ms ease;
 
     @media (min-width: 48rem) {
         max-width: 46rem;

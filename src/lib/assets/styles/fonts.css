@@ -7,7 +7,7 @@
     --secondary-font: sans-serif;
 
     --heading-font: var(--primary-font);
-    --body-font: var(--secondary-font);
+    --body-font: var(--primary-font);
 
     --font-size-sm: clamp(0.875rem, 1vw, 1rem);
     --font-size: clamp(1rem, 1.5vw, 1.25rem);

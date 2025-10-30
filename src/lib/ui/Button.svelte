@@ -8,9 +8,7 @@
 	import { isStringNullOrEmpty } from '$lib/utils/strings';
 	import type { Snippet } from 'svelte';
 
-	type ButtonProps = {
-		iconLeft?: string;
-		iconRight?: string;
+	type Props = {
 		text?: string;
 		children?: Snippet;
 		variant?: ButtonVariant;
@@ -20,9 +18,6 @@
 		target?: '_self' | '_blank' | '_parent' | '_top';
 		type?: 'button' | 'submit' | 'reset';
 	};
-
-	// Union of possible props
-	export type Props = ButtonProps;
 
 	let props: Props = $props();
 
@@ -37,10 +32,6 @@
 </script>
 
 {#snippet buttonContent()}
-	{#if !isStringNullOrEmpty(props.iconLeft)}
-		<span class="btn__icon btn__icon--left"><i class={props.iconLeft}></i></span>
-	{/if}
-
 	<span class="btn__text">
 		{#if props.children}
 			{@render props.children()}
@@ -50,10 +41,6 @@
 			Button
 		{/if}
 	</span>
-
-	{#if !isStringNullOrEmpty(props.iconRight)}
-		<span class="btn__icon btn__icon--right"><i class={props.iconRight}></i></span>
-	{/if}
 {/snippet}
 
 {#if 'href' in props && !isStringNullOrEmpty(props.href)}
@@ -62,13 +49,13 @@
 		{@render buttonContent()}
 	</a>
 {:else}
-	<button class={classes} type={(props as ButtonProps).type ?? 'button'}>
+	<button class={classes} type={(props as Props).type ?? 'button'} disabled={props.state === 'disabled'}>
 		{@render buttonContent()}
 	</button>
 {/if}
 
 <style>
-	a.btn {
+	a.btn:not(.btn--link) {
 		text-decoration: none;
 	}
 
@@ -84,6 +71,7 @@
 		--btn-border-color: var(--text-color);
 
 		--btn-letter-spacing: normal;
+		--btn-font-size: 1rem;
 		--btn-min-width: 0;
 
 		--_btn-color: var(--btn-color);
@@ -109,16 +97,10 @@
 		user-select: none;
 		transition: 150ms all ease;
 
-		& .btn__icon {
-			color: inherit;
-			display: inline-flex;
-			align-items: center;
-		}
-
 		& .btn__text {
 			color: inherit;
 			font-family: var(--body-font);
-			font-size: var(--font-size);
+			font-size: var(--btn-font-size);
 			font-weight: 800;
 			letter-spacing: var(--btn-letter-spacing);
 		}
@@ -130,6 +112,18 @@
 
 		&:active {
 			scale: 0.98;
+		}
+
+		&.btn--sm {
+			--btn-font-size: 0.875rem;
+		}
+
+		&.btn--md {
+			--btn-font-size: 1rem;
+		}
+
+		&.btn--lg {
+			--btn-font-size: 1.25rem;
 		}
 
 		&.btn--primary {
@@ -157,6 +151,13 @@
 			&:active {
 				scale: 1;
 			}
+		}
+
+		&.btn--disabled {
+			--_btn-color: var(--shade-darker);
+			--_btn-background-color: var(--shade-light);
+			cursor: not-allowed;
+			pointer-events: none;
 		}
 	}
 </style>

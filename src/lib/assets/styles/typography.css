@@ -36,3 +36,19 @@ body, p, span, a, li, div, .text {
     line-height: 1.5;
     font-weight: 400;
 }
+
+em {
+    font-style: normal;
+    font-weight: 700;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: auto 0 .125em 0;
+        height: .5em;
+        width: 100%;
+        z-index: -1;
+        background-color: color-mix(in oklab, var(--color-secondary-light) 50%, white);
+    }
+}
