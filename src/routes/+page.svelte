@@ -2,6 +2,7 @@
 	import AboutImage from '$lib/assets/images/me.png';
 	import Button from '$lib/ui/Button.svelte';
 	import ProjectCard from '$lib/ui/ProjectCard.svelte';
+	import Contact from './Contact.svelte';
 	import Hero from './Hero.svelte';
 </script>
 
@@ -79,23 +80,7 @@
 	</div>
 </section>
 
-<section class="contact-me">
-	<h2 class="contact-me__title title">Contact me</h2>
-	<p class="contact-me__description"></p>
-
-	<form class="contact-me__form" action="mailto:rubenalves.dev@gmail.com" method="post" enctype="text/plain">
-		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" required />
-
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email" required />
-
-		<label for="message">Message:</label>
-		<textarea id="message" name="message" rows="4" required></textarea>
-
-		<Button type="submit">Send</Button>
-	</form>
-</section>
+<Contact />
 
 <style>
 	.about {
