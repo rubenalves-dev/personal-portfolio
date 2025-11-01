@@ -43,7 +43,7 @@
 		<h2 class="hero__subtitle">Fullstack developer <span class="hero__flag">&#127477;&#127481;</span></h2>
 		<h1 class="hero__title">Rúben Alves</h1>
 		<div class="hero__button-wrapper">
-			<Button href="#contact-me">Get in touch <i class="icon-arrow-right"></i></Button>
+			<Button href="#contact-me">Contact me <i class="icon-arrow-right"></i></Button>
 		</div>
 	</div>
 </section>

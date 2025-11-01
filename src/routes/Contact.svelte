@@ -18,7 +18,7 @@
 	});
 </script>
 
-<section class="contact-me">
+<section class="contact-me" id="contact-me">
 	<h2 class="contact-me__title">Contact Me</h2>
 
 	<form

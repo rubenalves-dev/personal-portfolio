@@ -4,6 +4,7 @@
 
 body {
     color: var(--shade-darkest);
+    scroll-behavior: smooth;
 }
 
 .container {
