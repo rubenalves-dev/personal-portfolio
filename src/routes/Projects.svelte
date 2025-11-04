@@ -1,9 +1,9 @@
 <script>
-	import ProjectCard from '$lib/ui/ProjectCard.svelte';
+	// import ProjectCard from '$lib/ui/ProjectCard.svelte';
 </script>
 
 <section class="projects">
-	<div class="container">
+	<div class="container mx-auto">
 		<h2 class="projects__title title">Projects</h2>
 		<p class="projects__description">
 			This is some projects I've worked on recently. Keep in mind that some projects are confidential and cannot be
@@ -11,7 +11,7 @@
 		</p>
 
 		<div class="projects__grid">
-			<ProjectCard
+			<!-- <ProjectCard
 				title="JF Alcoentre"
 				description="Official website for the Alcoentre Parish Council, built to provide information and services to the local community."
 				image_url="images/jf-alcoentre.jpg"
@@ -41,6 +41,7 @@
 					azure: true
 				}}
 			/>
+		</div> -->
 		</div>
 	</div>
 </section>
