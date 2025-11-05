@@ -18,7 +18,7 @@
 </script>
 
 <Card
-	class="group overflow-hidden p-0 transition  duration-300 hover:-translate-y-2 hover:drop-shadow-lg hover:drop-shadow-primary/50"
+	class="group overflow-hidden p-0 transition  duration-300 hover:-translate-y-1 hover:drop-shadow-lg hover:drop-shadow-primary/15"
 >
 	<CardContent class="p-0">
 		<div class="aspect-video overflow-hidden">
@@ -38,7 +38,7 @@
 			{#if props.source_url || props.live_url}
 				<div class="flex gap-2">
 					{#if props.source_url}
-						<Button variant="secondary"><Github /> Source Code</Button>
+						<Button variant="outline"><Github /> Source Code</Button>
 					{/if}
 					{#if props.live_url}
 						<Button><ExternalLink /> Live App</Button>

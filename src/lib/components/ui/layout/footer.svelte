@@ -6,7 +6,7 @@
 	import Mail from '@lucide/svelte/icons/mail';
 </script>
 
-<footer class="border-t border-foreground/30 bg-background py-8">
+<footer class="border-t border-foreground/30 py-8 backdrop-blur-sm">
 	<div class="container mx-auto flex flex-col gap-6 text-center">
 		<div class="flex items-center justify-center gap-4">
 			<Button variant="ghost" size="icon-lg"><Github class="size-6" /></Button>
@@ -18,3 +18,12 @@
 		<p class="text-foreground">© Rúben Alves. All rights reserved</p>
 	</div>
 </footer>
+
+<style>
+	footer {
+		background: var(--dynamic-background), var(--static-background);
+		background-blend-mode: var(--dynamic-background-blend-mode), var(--static-background-blend-mode);
+		background-attachment: fixed;
+		isolation: isolate;
+	}
+</style>

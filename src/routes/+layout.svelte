@@ -5,6 +5,7 @@
 	import Header from '$lib/components/ui/layout/header.svelte';
 	import Footer from '$lib/components/ui/layout/footer.svelte';
 	import { Toaster } from '$lib/components/ui/sonner';
+	import Background from '$lib/components/ui/layout/background.svelte';
 
 	let { children } = $props();
 </script>
@@ -17,6 +18,7 @@
 
 <Toaster />
 <ModeWatcher />
+<Background />
 
 <main>
 	{@render children?.()}

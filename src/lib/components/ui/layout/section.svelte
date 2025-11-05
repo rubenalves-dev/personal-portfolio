@@ -4,12 +4,13 @@
 	type Props = {
 		title?: string;
 		children?: Snippet;
+		id?: string;
 	};
 
 	const props: Props = $props();
 </script>
 
-<section class="container mx-auto mb-16 flex flex-col gap-8 py-6">
+<section id={props.id} class="container mx-auto mb-16 flex flex-col gap-8 py-6">
 	<h2>{props.title ?? 'Section'}</h2>
 
 	<div>

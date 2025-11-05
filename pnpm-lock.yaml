@@ -96,6 +96,9 @@ importers:
       svelte-sonner:
         specifier: ^1.0.5
         version: 1.0.5(svelte@5.41.0)
+      sveltekit-rate-limiter:
+        specifier: ^0.7.0
+        version: 0.7.0(@sveltejs/kit@2.47.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2)))
       sveltekit-superforms:
         specifier: ^2.28.0
         version: 2.28.0(@sveltejs/kit@2.47.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2)))(@types/json-schema@7.0.15)(esbuild@0.25.11)(svelte@5.41.0)(typescript@5.9.3)
@@ -406,6 +409,10 @@ packages:
   '@isaacs/fs-minipass@4.0.1':
     resolution: {integrity: sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==}
     engines: {node: '>=18.0.0'}
+
+  '@isaacs/ttlcache@1.4.1':
+    resolution: {integrity: sha512-RQgQ4uQ+pLbqXfOmieB91ejmLwvSgv9nLx6sT6sD83s7umBypgg+OIBOBbEUiJXrfpnp9j0mRhYYdzp9uqq3lA==}
+    engines: {node: '>=12'}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -1965,6 +1972,11 @@ packages:
     resolution: {integrity: sha512-mP3vFFv5OUM5JN189+nJVW74kQ1dGqUrXTEzvCEVZqessY0GxZDls1nWVvt4Sxyv2USfQvAZO68VRaeIZvpzKg==}
     engines: {node: '>=18'}
 
+  sveltekit-rate-limiter@0.7.0:
+    resolution: {integrity: sha512-aQI8Y1dTWKsB4YiZMBYORMDwy2SaFA2J5t848dEPVNkXWzhqrHqHUBb7QiNiLWqAeWvOJBwD+MZnsbmvbhGQdg==}
+    peerDependencies:
+      '@sveltejs/kit': 1.x || 2.x
+
   sveltekit-superforms@2.28.0:
     resolution: {integrity: sha512-kHoROSmf5bzK9r261z2op5OPF5tRhxqQQOQc8dS6CatKAUDr3o94Fjjv7AwjD9i4FplyXI+OyTo6hGOXQ3qCKQ==}
     peerDependencies:
@@ -2486,6 +2498,8 @@ snapshots:
   '@isaacs/fs-minipass@4.0.1':
     dependencies:
       minipass: 7.1.2
+
+  '@isaacs/ttlcache@1.4.1': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
@@ -3983,6 +3997,11 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.19
       zimmerframe: 1.1.4
+
+  sveltekit-rate-limiter@0.7.0(@sveltejs/kit@2.47.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2))):
+    dependencies:
+      '@isaacs/ttlcache': 1.4.1
+      '@sveltejs/kit': 2.47.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2))
 
   sveltekit-superforms@2.28.0(@sveltejs/kit@2.47.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.41.0)(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.2)))(@types/json-schema@7.0.15)(esbuild@0.25.11)(svelte@5.41.0)(typescript@5.9.3):
     dependencies:
