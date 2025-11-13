@@ -5,12 +5,8 @@
 
 <Section title="About me">
 	<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-		<div class="relative me-12 overflow-clip bg-base-100 dark:bg-base-300">
-			<img
-				src={me}
-				alt="Myself"
-				class="absolute inset-0 h-full w-full -translate-x-1 translate-y-1 object-cover mix-blend-darken"
-			/>
+		<div class="relative me-12 overflow-clip">
+			<img src={me} alt="Myself" class="absolute inset-0 h-full w-full object-cover" />
 		</div>
 
 		<div>
