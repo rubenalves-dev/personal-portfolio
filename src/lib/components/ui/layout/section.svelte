@@ -11,7 +11,7 @@
 	const props: Props = $props();
 </script>
 
-<section id={props.id} class="container mx-auto mb-8 flex flex-col gap-8 py-6">
+<section id={props.id} class="container mx-auto flex flex-col gap-8 py-6">
 	{#if !isStringNullOrEmpty(props.title)}
 		<h2>{props.title}</h2>
 	{/if}
@@ -25,7 +25,8 @@
 
 <style>
 	section {
-		padding-top: var(--header-size);
+		padding-block-start: var(--header-size);
+		padding-block-end: calc(var(--header-size) / 4);
 	}
 
 	h2 {

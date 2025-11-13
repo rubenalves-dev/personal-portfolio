@@ -19,7 +19,7 @@
 			<span class="primary-gradient">R</span><span class="base-gradient">úben</span>
 			<span class="primary-gradient">A</span><span class="base-gradient">lves</span>
 		</h1>
-		<p class="text-center">"I'm just a guy who loves solving problems."</p>
+		<p class="text-center">&ldquo;I'm just a guy who loves solving problems.&rdquo;</p>
 
 		<div class="my-10 flex items-center justify-center gap-2">
 			<Button size="lg" href="/#contact-me"><ArrowDown />Contact me</Button>
@@ -54,7 +54,7 @@
 		background:
 			radial-gradient(ellipse at 45% 50%, var(--color-primary), transparent 30%),
 			radial-gradient(ellipse at 55% 65%, var(--color-secondary), transparent 40%);
-		animation: gradient-move 15s ease-in-out infinite;
+		animation: gradient-move 10s ease-in-out infinite;
 	}
 
 	@keyframes gradient-move {

@@ -238,7 +238,7 @@ body {
   letter-spacing: var(--tracking-normal);
 }
 
-html { scroll-behavior: smooth; color-scheme: dark; }
+html { scroll-behavior: smooth; color-scheme: dark light; }
 
 *::selection {
 	background: color-mix(in oklab, var(--color-primary) 100%, transparent);
@@ -262,17 +262,24 @@ strong, [class*="-gradient"] {
 }
 
 strong, .primary-gradient {
-	background-image: linear-gradient(60deg, var(--color-primary-600) 0%, var(--color-primary-500) 100%);
+	background-image: linear-gradient(-45deg, var(--color-primary-600) 0%, var(--color-primary-500) 100%);
 }
 
 .secondary-gradient {
     color: var(--color-secondary);
-    background-image: linear-gradient(60deg, var(--color-secondary-600) 0%, var(--color-secondary-500) 100%);
+    background-image: linear-gradient(-45deg, var(--color-secondary-600) 0%, var(--color-secondary-500) 100%);
 }
 
 .base-gradient {
-    color: var(--color-white);
-    background-image: linear-gradient(60deg, var(--color-base-300) 0%, var(--color-base-50) 100%);
+    --_gradient-color-start: var(--color-base-700);
+    --_gradient-color-end: var(--color-base-900);
+    color: var(--_gradient-color-end);
+    background-image: linear-gradient(-45deg, var(--_gradient-color-start) 0%, var(--_gradient-color-end) 100%);
+
+    :where(*:is(.dark *)) & {
+        --_gradient-color-start: var(--color-base-300);
+        --_gradient-color-end: var(--color-base-50);
+    }
 }
 
 .auto-grid {
