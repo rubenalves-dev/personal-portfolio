@@ -1,12 +1,21 @@
 <script lang="ts">
-	import ProjectCard from '$lib/ui/ProjectCard.svelte';
-	import About from './About.svelte';
-	import Contact from './Contact.svelte';
-	import Hero from './Hero.svelte';
 	import Projects from './Projects.svelte';
+	import Form from './Form.svelte';
+	import type { Infer, SuperValidated } from 'sveltekit-superforms';
+	import type { ContactSchema } from '$lib/schemas/contact';
+	import AboutMe from './AboutMe.svelte';
+	import Hero from './Hero.svelte';
+
+	type Props = {
+		data: {
+			contactForm: SuperValidated<Infer<ContactSchema>>;
+		};
+	};
+
+	const props: Props = $props();
 </script>
 
 <Hero />
-<About />
-<!-- <Projects /> -->
-<!-- <Contact /> -->
+<AboutMe />
+<Projects />
+<Form contactForm={props.data.contactForm} />

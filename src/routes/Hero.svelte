@@ -1,158 +1,71 @@
 <script lang="ts">
-	import Button from '$lib/ui/Button.svelte';
-
-	const rows = 8;
-	const randoms = Array.from({ length: rows }, () => Math.random());
+	import { Button } from '$lib/components/ui/button';
+	import Code from '@lucide/svelte/icons/code-xml';
+	import ArrowDown from '@lucide/svelte/icons/arrow-down';
+	// import Sparkles from '@lucide/svelte/icons/sparkles';
 </script>
 
-{#snippet nameRow()}
-	<span class="hero__background-title"><span class="hero__background-character">R</span>úben</span><span
-		class="hero__background-title">&nbsp;<span class="hero__background-character">A</span>lexandre</span
-	><span class="hero__background-title"
-		>&nbsp<span class="hero__background-character">I</span>sa<span class="hero__background-character">í</span>as</span
-	><span class="hero__background-title"
-		>&nbsp;<span class="hero__background-character hero__background-character--em">A</span> lves&nbsp;</span
-	>
-{/snippet}
-
-{#snippet layer(i: number)}
-	<div
-		class="hero__background-layer {i % 2 === 0 && 'hero__background-layer--reverse'}"
-		style="--scalar: {1 + i * randoms[i]};--delay: {-10 * i}s"
-	>
-		<div class="hero__background-row">
-			{@render nameRow()}
-		</div>
-		<div class="hero__background-row">
-			{@render nameRow()}
-		</div>
-		<div class="hero__background-row">
-			{@render nameRow()}
-		</div>
+<section id="hero" class="relative">
+	<div class="hero-background">
+		<div class="hero-gradient"></div>
 	</div>
-{/snippet}
+	<div class="grid place-content-center py-20">
+		<!-- <div
+			class="mx-auto mb-4 flex w-fit items-center justify-center gap-2 rounded-full border border-secondary-200/20 bg-secondary/10 px-6 py-2 backdrop-blur-xs"
+		>
+			<span class="text-amber-300"><Sparkles /></span> Available for Freelance
+		</div> -->
+		<h1 class="text-7xl">
+			<span class="primary-gradient">R</span><span class="base-gradient">úben</span>
+			<span class="primary-gradient">A</span><span class="base-gradient">lves</span>
+		</h1>
+		<p class="text-center">"I'm just a guy who loves solving problems."</p>
 
-<section class="hero">
-	<div class="hero__background">
-		{#each Array(rows), i (i)}
-			{@render layer(i)}
-		{/each}
-	</div>
-
-	<div class="hero__content container">
-		<h2 class="hero__subtitle">Fullstack developer <span class="hero__flag">&#127477;&#127481;</span></h2>
-		<h1 class="hero__title">Rúben Alves</h1>
-		<div class="hero__button-wrapper">
-			<Button href="#contact-me">Contact me <i class="icon-arrow-right"></i></Button>
+		<div class="my-10 flex items-center justify-center gap-2">
+			<Button size="lg" href="/#contact-me"><ArrowDown />Contact me</Button>
+			<Button variant="outline" size="lg" href="/#projects"><Code />See my work</Button>
 		</div>
 	</div>
 </section>
 
 <style>
-	.hero {
+	#hero {
+		padding-top: var(--header-size, 6rem);
+	}
+
+	.hero-background {
+		position: absolute;
+		inset: 0;
+		z-index: -2;
+		overflow-x: hidden;
+		mask-image: radial-gradient(at top center, black 30%, transparent 70%);
+	}
+
+	.hero-gradient {
+		position: absolute;
+		opacity: 0.7;
+		left: 50%;
+		top: 50%;
+		translate: -50% -45%;
 		width: 100%;
-		height: 80vh;
-		min-height: 20rem;
-		max-height: 30rem;
-		position: relative;
-		display: grid;
-		justify-content: center;
-		align-items: center;
-
-		.hero__background {
-			position: absolute;
-			z-index: -1;
-			inset: 0;
-			overflow-y: hidden;
-			background-color: var(--shade-lightest);
-
-			.hero__background-layer {
-				display: flex;
-				width: fit-content;
-				animation: scroll-left calc(60s * var(--scalar, 1)) linear infinite;
-				animation-delay: var(--delay, 0);
-				will-change: transform;
-
-				.hero__background-row {
-					display: inline-flex;
-					white-space: nowrap;
-				}
-			}
-
-			.hero__background-layer--reverse {
-				animation: scroll-right calc(60s * var(--scalar, 1)) linear infinite;
-			}
-
-			.hero__background-title,
-			.hero__background-character {
-				color: var(--color-primary-lighter);
-				font-size: clamp(6rem, 6vw, 10rem);
-				font-weight: 900;
-				text-transform: uppercase;
-				line-height: 0.725;
-				opacity: 0.5;
-				text-wrap: nowrap;
-				letter-spacing: -0.1em;
-
-				.hero__background-character {
-					color: var(--color-primary);
-					opacity: 0.5;
-
-					&.hero__background-character--em {
-						text-shadow:
-							0.145em 0 0 var(--color-primary-lightest),
-							0.215em 0.215em 0 var(--color-primary-lightest),
-							0.29em 0 0 var(--color-primary);
-					}
-				}
-			}
-		}
-
-		.hero__content {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: flex-start;
-
-			.hero__title {
-				text-transform: uppercase;
-				color: var(--color-primary);
-				font-size: clamp(3rem, 6vw, 6rem);
-				margin-bottom: 1rem;
-			}
-
-			.hero__subtitle {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.5em;
-				color: var(--shade-darkest);
-
-				.hero__flag {
-					font-size: 2rem;
-				}
-			}
-		}
-
-		.hero__button-wrapper {
-			align-self: flex-end;
-		}
+		aspect-ratio: 1 / 1;
+		z-index: -1;
+		filter: blur(100px);
+		background:
+			radial-gradient(ellipse at 45% 50%, var(--color-primary), transparent 30%),
+			radial-gradient(ellipse at 55% 65%, var(--color-secondary), transparent 40%);
+		animation: gradient-move 15s ease-in-out infinite;
 	}
 
-	@keyframes scroll-left {
-		from {
-			transform: translateX(0);
+	@keyframes gradient-move {
+		0%,
+		100% {
+			translate: -50% -45%;
+			rotate: 0deg;
 		}
-		to {
-			transform: translateX(-50%);
-		}
-	}
-
-	@keyframes scroll-right {
-		from {
-			transform: translateX(-50%);
-		}
-		to {
-			transform: translateX(0);
+		50% {
+			translate: -52% -50%;
+			rotate: 90deg;
 		}
 	}
 </style>
