@@ -7,18 +7,17 @@
 
 	$effect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
-			const { innerWidth, innerHeight } = window;
-			targetX = (e.clientX / innerWidth) * 100;
-			targetY = (e.clientY / innerHeight) * 100;
+			targetX = e.clientX;
+			targetY = e.clientY;
 		};
 
 		const smoothMove = () => {
 			// Smooth interpolation toward the target
-			currentX += (targetX - currentX) / 1000;
-			currentY += (targetY - currentY) / 1000;
+			currentX += (targetX - currentX) / 100;
+			currentY += (targetY - currentY) / 100;
 
-			document.documentElement.style.setProperty('--bg-x', `${currentX}%`);
-			document.documentElement.style.setProperty('--bg-y', `${currentY}%`);
+			document.documentElement.style.setProperty('--bg-x', `${currentX}px`);
+			document.documentElement.style.setProperty('--bg-y', `${currentY}px`);
 
 			requestAnimationFrame(smoothMove);
 		};
@@ -31,7 +30,7 @@
 </script>
 
 <style>
-	:global(body) {
+	:global(body:is(.dark *)) {
 		--dynamic-background:
 			radial-gradient(
 				circle at calc(var(--bg-x, 50%) + (var(--bg-x, 50%) / 2)) calc(var(--bg-y, 50%) + (var(--bg-y, 50%) / 4)),
@@ -40,7 +39,7 @@
 			),
 			radial-gradient(
 				circle at var(--bg-x, 50%) var(--bg-y, 30%),
-				color-mix(in oklab, var(--color-primary) 3%, transparent) 0%,
+				color-mix(in oklab, var(--color-primary) 20%, transparent) 0%,
 				color-mix(in oklab, var(--background) 30%, transparent) 90%
 			);
 		--static-background:

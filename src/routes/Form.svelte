@@ -7,6 +7,7 @@
 	import { Button } from '$lib/components/ui/button';
 
 	import Mail from '@lucide/svelte/icons/mail';
+	import Send from '@lucide/svelte/icons/send';
 	import MapPin from '@lucide/svelte/icons/map-pin';
 	import FileText from '@lucide/svelte/icons/file-text';
 	import Loader from '@lucide/svelte/icons/loader-circle';
@@ -121,6 +122,8 @@
 				<FormButton disabled={loading}>
 					{#if loading}
 						<Loader class="animate-spin" />
+					{:else}
+						<Send />
 					{/if}
 					Send Message
 				</FormButton>

@@ -7,8 +7,10 @@
 
 :root {
     --font-sans: "Outfit", "sans-serif";
+    --font-mono: "Major Mono Display", monospace;
     --display-weight: 800;
     --text-weight: 400;
+
 
   --base-50: oklch(0.9851 0.001 33.69);
   --base-100: oklch(0.9567 0.0021 34.31);
@@ -49,14 +51,15 @@
   --secondary-950: oklch(0.2935 0.0585 241.55);
   --secondary-1000: oklch(0.2297 0.0447 242.94);
 
+  /* Light theme as default */
   --background: var(--color-white);
   --foreground: var(--base-800);
   --card: var(--color-white);
   --card-foreground: var(--base-800);
   --popover: var(--color-white);
   --popover-foreground: var(--base-800);
-  --primary: var(--primary-600);
-  --primary-foreground: var(--color-black);
+  --primary: var(--primary-500);
+  --primary-foreground: var(--color-white);
   --secondary: var(--secondary-700);
   --secondary-foreground: var(--color-white);
   --muted: var(--base-50);
@@ -81,10 +84,9 @@
   --sidebar-accent-foreground: var(--base-800);
   --sidebar-border: var(--base-200);
   --sidebar-ring: var(--primary-600);
-}
 
-.dark {
-  --background: var(--base-950);
+  /*DarkOnly*/
+  /*--background: var(--base-950);
   --foreground: var(--base-200);
   --card: var(--base-950);
   --card-foreground: var(--base-200);
@@ -92,6 +94,40 @@
   --popover-foreground: var(--base-200);
   --primary: var(--primary-600);
   --primary-foreground: var(--color-black);
+  --secondary: var(--secondary-700);
+  --secondary-foreground: var(--color-white);
+  --muted: var(--base-900);
+  --muted-foreground: var(--base-400);
+  --accent: var(--base-900);
+  --accent-foreground: var(--base-200);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: var(--base-800);
+  --input: var(--base-700);
+  --ring: var(--primary-600);
+  --chart-1: var(--primary-600);
+  --chart-2: var(--secondary-700);
+  --chart-3: var(--primary-300);
+  --chart-4: var(--secondary-300);
+  --chart-5: var(--primary-100);
+  --sidebar: var(--base-900);
+  --sidebar-foreground: var(--base-200);
+  --sidebar-primary: var(--primary-600);
+  --sidebar-primary-foreground: var(--color-black);
+  --sidebar-accent: var(--base-800);
+  --sidebar-accent-foreground: var(--base-200);
+  --sidebar-border: var(--base-800);
+  --sidebar-ring: var(--primary-600);*/
+}
+
+.dark {
+  --background: var(--base-950);
+  --foreground: var(--base-200);
+  --card: var(--base-900);
+  --card-foreground: var(--base-200);
+  --popover: var(--base-950);
+  --popover-foreground: var(--base-200);
+  --primary: var(--primary-600);
+  --primary-foreground: var(--color-white);
   --secondary: var(--secondary-700);
   --secondary-foreground: var(--color-white);
   --muted: var(--base-900);
@@ -195,16 +231,64 @@
 
   --font-display: var(--font-sans);
   --font-text: var(--font-sans);
+  --font-hero: var(--font-mono);
 }
 
 body {
   letter-spacing: var(--tracking-normal);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; color-scheme: dark; }
+
+*::selection {
+	background: color-mix(in oklab, var(--color-primary) 100%, transparent);
+	color: var(--color-primary-foreground);
+}
 
 .container {
     padding-inline: calc(var(--spacing) * 8);
+}
+
+strong, [class*="-gradient"] {
+	color: var(--color-primary);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: inline-block;
+
+	&::selection {
+		-webkit-text-fill-color: initial;
+	}
+}
+
+strong, .primary-gradient {
+	background-image: linear-gradient(60deg, var(--color-primary-600) 0%, var(--color-primary-500) 100%);
+}
+
+.secondary-gradient {
+    color: var(--color-secondary);
+    background-image: linear-gradient(60deg, var(--color-secondary-600) 0%, var(--color-secondary-500) 100%);
+}
+
+.base-gradient {
+    color: var(--color-white);
+    background-image: linear-gradient(60deg, var(--color-base-300) 0%, var(--color-base-50) 100%);
+}
+
+.auto-grid {
+    --min-col-size: 300px;
+    --gap: calc(var(--spacing) * 4);
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--min-col-size)), 1fr));
+}
+
+.auto-grid-fill {
+    --min-col-size: 300px;
+    --gap: calc(var(--spacing) * 4);
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--min-col-size)), 1fr));
 }
 
 @layer base {

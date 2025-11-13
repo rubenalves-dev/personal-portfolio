@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.css';
 	import { ModeWatcher } from 'mode-watcher';
-	import favicon from '$lib/assets/favicon.svg';
 	import Header from '$lib/components/ui/layout/header.svelte';
 	import Footer from '$lib/components/ui/layout/footer.svelte';
 	import { Toaster } from '$lib/components/ui/sonner';
@@ -10,14 +9,10 @@
 	let { children } = $props();
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
-
-<Header />
-
 <Toaster />
 <ModeWatcher />
+
+<Header />
 <Background />
 
 <main>
@@ -29,12 +24,19 @@
 <style>
 	:global(h2) {
 		font-size: 2.5rem;
+	}
+
+	:global(h3) {
+		font-size: 1.875rem;
+	}
+
+	:global(h2) {
 		line-height: 2;
 		font-weight: bold;
 		position: relative;
 
 		&::after {
-			--line-height: 0.25rem;
+			--line-height: 0.25em;
 			--line-width: calc(15 * var(--line-height));
 
 			content: '';
@@ -50,12 +52,13 @@
 	}
 
 	main {
-		--header-padding: calc((var(--spacing) * 6) * 2);
+		--header-padding: calc((var(--spacing) * 3) * 2);
+		--header-image-size: calc(var(--spacing) * 12);
 		--header-button-font-size: calc(var(--text-sm) * var(--text-sm--line-height));
 		--header-button-padding: calc((var(--spacing) * 2) * 2);
-		--header-size: calc(var(--header-padding) + var(--header-button-font-size) + var(--header-button-padding) + 1px);
+		--header-size: calc(var(--header-padding) + var(--header-image-size) + 1px);
 
 		min-height: 100vh;
-		margin-top: var(--header-size, 6rem);
+		/*padding-top: var(--header-size, 6rem);*/
 	}
 </style>
