@@ -11,17 +11,18 @@
 
 	const projects: Project[] = [
 		{
-			title: 'I;m hero',
-			description: 'A very short description to show the project description',
+			title: 'Personal Portfolio',
+			description:
+				'A personal portfolio website to showcase my projects and skills. It also serves the purpose of introducing myself to the world.',
 			source_url: 'www.github.com',
-			live_url: 'www.google.com'
+			live_url: 'www.raiiaa.dev'
 		}
 	];
 </script>
 
 {#if projects.length > 0}
 	<Section id="projects" title="Featured Projects">
-		<div class="auto-grid">
+		<div class="auto-grid" style="--min-col-size: 250px">
 			{#each projects as project, i (i)}
 				<ProjectCard
 					title={project.title}

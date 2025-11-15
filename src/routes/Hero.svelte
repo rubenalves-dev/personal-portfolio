@@ -9,19 +9,19 @@
 	<div class="hero-background">
 		<div class="hero-gradient"></div>
 	</div>
-	<div class="grid place-content-center py-20">
+	<div class="grid place-content-center px-4 py-20">
 		<!-- <div
 			class="mx-auto mb-4 flex w-fit items-center justify-center gap-2 rounded-full border border-secondary-200/20 bg-secondary/10 px-6 py-2 backdrop-blur-xs"
 		>
 			<span class="text-amber-300"><Sparkles /></span> Available for Freelance
 		</div> -->
-		<h1 class="text-7xl">
-			<span class="primary-gradient">R</span><span class="base-gradient">úben</span>
-			<span class="primary-gradient">A</span><span class="base-gradient">lves</span>
+		<h1 class="text-center text-7xl text-balance">
+			<span><span class="primary-gradient">R</span><span class="base-gradient">úben</span></span>
+			<span><span class="primary-gradient">A</span><span class="base-gradient">lves</span></span>
 		</h1>
-		<p class="text-center">&ldquo;I'm just a guy who loves solving problems.&rdquo;</p>
+		<p class="text-center text-balance">&ldquo;I'm just a guy who loves solving problems.&rdquo;</p>
 
-		<div class="my-10 flex items-center justify-center gap-2">
+		<div class="my-10 flex flex-wrap items-center justify-center gap-2">
 			<Button size="lg" href="/#contact-me"><ArrowDown />Contact me</Button>
 			<Button variant="outline" size="lg" href="/#projects"><Code />See my work</Button>
 		</div>

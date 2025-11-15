@@ -232,6 +232,8 @@
   --font-display: var(--font-sans);
   --font-text: var(--font-sans);
   --font-hero: var(--font-mono);
+
+  --breakpoint-xs: 30rem;
 }
 
 body {
@@ -287,15 +289,15 @@ strong, .primary-gradient {
     --gap: calc(var(--spacing) * 4);
     display: grid;
     gap: var(--gap);
-    grid-template-columns: repeat(auto-fill, minmax(min(var(--min-col-size)), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--min-col-size), 100%), 1fr));
 }
 
-.auto-grid-fill {
+.auto-fit-grid {
     --min-col-size: 300px;
     --gap: calc(var(--spacing) * 4);
     display: grid;
     gap: var(--gap);
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--min-col-size)), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--min-col-size), 100%), 1fr));
 }
 
 @layer base {
