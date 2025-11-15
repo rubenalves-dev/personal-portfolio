@@ -7,13 +7,15 @@
 
 <header id="header" class="fixed inset-0 bottom-auto z-10 border-b border-foreground/30 py-3 backdrop-blur-xs">
 	<div class="container mx-auto flex items-center justify-between">
-		<div class="flex items-center gap-2 text-foreground"><img class="max-h-12" src={logo} alt="logo" />RAiiAA</div>
+		<div class="flex items-center gap-2 text-foreground">
+			<img class="h-12 max-h-12" src={logo} alt="logo" /><span class="hidden md:inline">RAiiAA</span>
+		</div>
 		<nav>
 			<ul class="flex items-center gap-2">
-				<li><Button variant="ghost">About</Button></li>
-				<li><Button variant="ghost">Projects</Button></li>
-				<li><Button variant="ghost" href="#contact-me">Contacts</Button></li>
-				<li class="me-2"><ModeToggle /></li>
+				<li class="hidden sm:inline"><Button variant="ghost" href="/#about">About</Button></li>
+				<li class="hidden xs:inline"><Button variant="ghost" href="/#projects">Projects</Button></li>
+				<li class="hidden xs:inline"><Button variant="ghost" href="/#contact-me">Contacts</Button></li>
+				<li class="me-2 hidden sm:inline"><ModeToggle /></li>
 				<li><Button><DownloadIcon />Curriculum Vitae</Button></li>
 			</ul>
 		</nav>

@@ -61,7 +61,7 @@
 </script>
 
 <Section id="contact-me" title="Get in touch">
-	<div class="grid grid-cols-2">
+	<div class="auto-fit-grid" style="--min-col-size:250px">
 		<div>
 			<Item class="gap-6">
 				<ItemMedia class="aspect-square size-12 rounded-full bg-primary text-white"><Mail /></ItemMedia>

@@ -13,8 +13,8 @@
 
 		const smoothMove = () => {
 			// Smooth interpolation toward the target
-			currentX += (targetX - currentX) / 100;
-			currentY += (targetY - currentY) / 100;
+			currentX += targetX - currentX;
+			currentY += targetY - currentY;
 
 			document.documentElement.style.setProperty('--bg-x', `${currentX}px`);
 			document.documentElement.style.setProperty('--bg-y', `${currentY}px`);
@@ -64,5 +64,6 @@
 		background-blend-mode: var(--dynamic-background-blend-mode), var(--static-background-blend-mode);
 		background-attachment: fixed;
 		will-change: background;
+		backdrop-filter: blur(10rem);
 	}
 </style>
