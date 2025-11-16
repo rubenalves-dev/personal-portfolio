@@ -5,17 +5,19 @@
 	type Project = {
 		title: string;
 		description: string;
-		source_url: string;
-		live_url: string;
+		source_url?: string;
+		live_url?: string;
+		image?: string;
 	};
 
 	const projects: Project[] = [
 		{
 			title: 'Personal Portfolio',
 			description:
-				'A personal portfolio website to showcase my projects and skills. It also serves the purpose of introducing myself to the world.',
+				'It introduces me to the world, serving as both a showcase of my projects and skills and a way to contact me.',
 			source_url: 'www.github.com',
-			live_url: 'www.raiiaa.dev'
+			live_url: 'www.raiiaa.dev',
+			image: '/images/raiiaa-portfolio.jpg'
 		}
 	];
 </script>
@@ -27,6 +29,7 @@
 				<ProjectCard
 					title={project.title}
 					description={project.description}
+					image={project.image}
 					source_url={project.source_url}
 					live_url={project.live_url}
 				/>

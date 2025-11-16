@@ -63,7 +63,7 @@
 		background: var(--dynamic-background), var(--static-background);
 		background-blend-mode: var(--dynamic-background-blend-mode), var(--static-background-blend-mode);
 		background-attachment: fixed;
-		will-change: background;
+		will-change: background backdrop-filter;
 		backdrop-filter: blur(10rem);
 	}
 </style>

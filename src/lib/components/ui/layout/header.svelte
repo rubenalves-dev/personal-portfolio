@@ -16,7 +16,7 @@
 				<li class="hidden xs:inline"><Button variant="ghost" href="/#projects">Projects</Button></li>
 				<li class="hidden xs:inline"><Button variant="ghost" href="/#contact-me">Contacts</Button></li>
 				<li class="me-2 hidden sm:inline"><ModeToggle /></li>
-				<li><Button><DownloadIcon />Curriculum Vitae</Button></li>
+				<li><Button href="/documents/CV-en.pdf" target="_blank"><DownloadIcon />Curriculum Vitae</Button></li>
 			</ul>
 		</nav>
 	</div>

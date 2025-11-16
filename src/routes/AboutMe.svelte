@@ -3,7 +3,7 @@
 	import me from '$lib/assets/images/me-edges.webp';
 </script>
 
-<Section title="About me">
+<Section id="about" title="About me">
 	<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 		<div class="relative me-12 overflow-clip">
 			<img src={me} alt="Myself" class="absolute inset-0 h-full w-full object-contain" />
