@@ -83,7 +83,9 @@
 				<ItemMedia class="aspect-square size-12 rounded-full bg-primary text-white"><FileText /></ItemMedia>
 				<ItemContent>
 					<ItemTitle>Resume</ItemTitle>
-					<Button variant="link" class="w-max px-0!"><Download />Download CV</Button>
+					<Button variant="link" href="/documents/CV-en.pdf" target="_blank" download="CV-en.pdf" class="w-max px-0!"
+						><Download />Download CV</Button
+					>
 				</ItemContent>
 			</Item>
 		</div>
